@@ -67,4 +67,3 @@ resource "vsphere_virtual_machine" "vm" {
     template_uuid = "${data.vsphere_virtual_machine.template.id}"
   }
 }
-© 2020 GitHub, Inc.
