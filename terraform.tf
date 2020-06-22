@@ -50,6 +50,11 @@ data "vsphere_virtual_machine" "template" {
   datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
 
+variable "vsphere_datacenter" {
+  description = "Target vSphere datacenter for virtual machine creation"
+  default = "RTP"
+}
+
 resource "vsphere_virtual_machine" "vm" {
   name             = "http2"
   resource_pool_id = "${data.vsphere_resource_pool.pool.id}"
