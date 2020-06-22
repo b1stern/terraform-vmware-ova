@@ -198,11 +198,11 @@ resource "vsphere_virtual_machine" "vm" {
   name             = "http2"
 #  resource_pool_id = "${data.vsphere_resource_pool.pool.id}"
   resource_pool_id = data.vsphere_resource_pool.vm_1_resource_pool.id
-  datastore_id.    = data.vsphere_resource_pool.vm_1_resource_pool.id
+  datastore_id     = data.vsphere_resource_pool.vm_1_resource_pool.id
   num_cpus = 4
   memory   = 8192
   guest_id = data.vsphere_virtual_machine.vm_1_template.guest_id
-  scsi_type = "${data.vsphere_virtual_machine.template.scsi_type}"
+  scsi_type = data.vsphere_virtual_machine.vm_1_template.scsi_type
 
   network_interface {
     network_id   = "${data.vsphere_network.network.id}"
