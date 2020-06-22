@@ -1,6 +1,6 @@
 {
-  "name": "Ben-SingleVirtualMachine",
-  "description": "Create Virtual Machine with single vnic",
+  "name": "04 - vmware-ova-ubuntu",
+  "description": "Deploy OVA image",
   "type": "prebuilt",
   "version": "1.0",
   "manifest": {
@@ -20,8 +20,8 @@
     }
   },
   "metadata": {
-      "displayName": "Ben-SingleVirtualMachine",
-      "longDescription": "Create Virtual Machine with single vnic on a network label by cloning",
+      "displayName": "04 - vmware-ova-ubuntu",
+      "longDescription": "Deploy single VM from an OVA file",
       "bullets": [
        {
          "title": "Clouds",
@@ -29,11 +29,11 @@
        },
        {
          "title": "Topology",
-         "description": "Single virtual machine"
+         "description": "Single virtual machine from an OVA file"
        },
        {
          "title": "Default Virtual Machine settings",
-         "description": "Standard machine type with 1 virtual CPU and 1 GB of memory."
+         "description": "Standard machine type with 4 virtual CPU and 8 GB of memory."
        },
        {
          "title": "Usage and special notes",
