@@ -27,7 +27,7 @@ provider "camc" {
 #}
 
 data "vsphere_datacenter" "dc" {
-  name = "${var.datacenter}"
+  name = "RTP"
 }
 
 data "vsphere_datastore" "datastore" {
@@ -50,10 +50,31 @@ data "vsphere_virtual_machine" "template" {
   datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
 
+variable "vsphere_virtual_machine" {
+  description = "Virtual Machine OVA template"
+  default = "ubuntu-OVA"
+}
+
+variable "vsphere_network" {
+  description = "VMware Virtual Machine Network"
+  default = "VM Network"
+}
+
+variable "vsphere_resource_pool" {
+  description = "Resource Pool"
+  default = "Pool1"
+}
+
+variable "vsphere_datastore" {
+  description = "Target datastore"
+  default = "v7000_vmware2_v5"
+}
+
 variable "vsphere_datacenter" {
   description = "Target vSphere datacenter for virtual machine creation"
   default = "RTP"
 }
+
 
 resource "vsphere_virtual_machine" "vm" {
   name             = "http2"
