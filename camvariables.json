@@ -34,7 +34,7 @@
       "secured": false,
       "required": true,
       "immutable": false,
-      "group_name": "cloud"
+      "group_name": "virtualmachine"
     },
     {
       "name": "memory",
@@ -82,7 +82,7 @@
       "secured": false,
       "required": false,
       "immutable": false,
-      "group_name": "cloud"
+      "group_name": "virtualmachine"
     },
     {
       "name": "vsphere_virtual_machine",
