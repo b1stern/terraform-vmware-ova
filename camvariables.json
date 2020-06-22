@@ -97,18 +97,6 @@
       "group_name": "cloud"
     },
     {
-      "name": "resource_pool",
-      "type": "string",
-      "description": "Target Resource Pool",
-      "default": "Pool1",
-      "hidden": true,
-      "label": "vSphere Resource Pool",
-      "secured": false,
-      "required": false,
-      "immutable": false,
-      "group_name": "cloud"
-    },
-    {
       "name": "datastore",
       "type": "string",
       "description": "target datastore",
