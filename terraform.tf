@@ -32,7 +32,10 @@ data "vsphere_virtual_machine" "vm_1_template" {
   datacenter_id = data.vsphere_datacenter.vm_1_datacenter.id
 }
 
-
+data "vsphere_network" "vm_1_network" {
+  name          = var.vm_1_network_interface_label
+  datacenter_id = data.vsphere_datacenter.vm_1_datacenter.id
+}
 
 
 variable "vm_1_folder" {
