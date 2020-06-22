@@ -1,3 +1,23 @@
+##############################################################
+# Keys - CAMC (public/private) & optional User Key (public) 
+##############################################################
+variable "allow_unverified_ssl" {
+  description = "Communication with vsphere server with self signed certificate"
+  default     = "true"
+}
+
+##############################################################
+# Define the vsphere provider 
+##############################################################
+provider "vsphere" {
+  allow_unverified_ssl = var.allow_unverified_ssl
+  version              = "~> 1.3"
+}
+
+provider "camc" {
+  version = "~> 0.2"
+}
+
 # General vCenter data
 # vCenter / ESXi Username
 variable "user" {
