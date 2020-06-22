@@ -45,12 +45,12 @@ data "vsphere_network" "network" {
   datacenter_id = data.vsphere_datacenter.dc.id
 }
 
-data "vsphere_virtual_machine" "template" {
+data "ova_template" "template" {
   name          = "ubuntu-OVA"
   datacenter_id = data.vsphere_datacenter.dc.id
 }
 
-variable "vsphere_virtual_machine" {
+variable "ova_template" {
   description = "Virtual Machine OVA template"
   default = "ubuntu-OVA"
 }
