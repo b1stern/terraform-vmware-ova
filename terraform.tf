@@ -18,6 +18,11 @@ provider "camc" {
   version = "~> 0.2"
 }
 
+data "vsphere_resource_pool" "vm_1_resource_pool" {
+  name          = var.vm_1_resource_pool
+  datacenter_id = data.vsphere_datacenter.vm_1_datacenter.id
+}
+
 # General vCenter data
 # vCenter / ESXi Username
 variable "user" {
@@ -45,7 +50,7 @@ variable "datastore" {
 }
 
 # vCenter / ESXi ResourcePool
-variable "resource_pool" {
+variable "vm_1_resource_pool" {
   default="Pool1"
 }
 
@@ -77,7 +82,8 @@ variable "memory" {
 
 resource "vsphere_virtual_machine" "vm" {
   name             = "http2"
-  resource_pool_id = "${data.vsphere_resource_pool.pool.id}"
+#  resource_pool_id = "${data.vsphere_resource_pool.pool.id}"
+  resource_pool_id = data.vsphere_resource_pool.vm_1_resource_pool.id
   datastore_id     = "${data.vsphere_datastore.datastore.id}"
 
   num_cpus = 4
