@@ -73,7 +73,7 @@
       "group_name": "virtualmachine"
     },
     {
-      "name": "template",
+      "name": "vsphere_virtual_machine",
       "type": "string",
       "description": "OVA Template",
       "hidden": false,
