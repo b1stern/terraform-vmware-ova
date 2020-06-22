@@ -5,6 +5,19 @@ password = "Ams49test!" # vSphere Password
 
 vsphere_server = "vcenter1.tivlab.raleigh.ibm.com" # vSphere URL (IP, hostname or FQDN)
 
+    {
+      "name": "vm_1_datacenter",
+      "type": "string",
+      "description": "Target vSphere datacenter for virtual machine creation",
+      "hidden": false,
+      "default": "RTP",
+      "label": "Target vSphere Datacenter",
+      "secured": false,
+      "required": false,
+      "immutable": false,
+      "group_name": "cloud"
+    },
+
 datacenter = "RTP" # vSphere datacenter
 
 datastore = "v7000_vmware2_v6" # vSphere datastore
