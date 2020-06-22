@@ -219,14 +219,15 @@ resource "vsphere_virtual_machine" "vm" {
 
   vapp {
     properties {
-      user-data = "${base64encode(file("cloud-init.yml"))}"
+#      user-data = "${base64encode(file("cloud-init.yml"))}"
+      user-data = base64encode(file("cloud-init.yml"))
     }
   }
 
   clone {
 #    template_uuid = "${data.vsphere_virtual_machine.template.id}"
     template_uuid = "${data.vsphere_virtual_machine.template.id}"
-      customize {
+    customize {
       linux_options {
         domain    = var.vm_1_domain
         host_name = var.vm_1_name
@@ -240,5 +241,18 @@ resource "vsphere_virtual_machine" "vm" {
       ipv4_gateway    = var.vm_1_ipv4_gateway
       dns_suffix_list = var.vm_1_dns_suffixes
       dns_server_list = var.vm_1_dns_servers
+    }
+  }
+  
+  network_interface {
+    network_id   = data.vsphere_network.vm_1_network.id
+    adapter_type = var.vm_1_adapter_type
+  }
+
+  disk {
+    label          = "${var.vm_1_name}0.vmdk"
+    size           = var.vm_1_root_disk_size
+    keep_on_remove = var.vm_1_root_disk_keep_on_remove
+    datastore_id   = data.vsphere_datastore.vm_1_datastore.id
   }
 }
