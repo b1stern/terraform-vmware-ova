@@ -27,7 +27,10 @@ data "vsphere_resource_pool" "vm_1_resource_pool" {
   datacenter_id = data.vsphere_datacenter.vm_1_datacenter.id
 }
 
-
+data "vsphere_virtual_machine" "vm_1_template" {
+  name          = var.vm_1-image
+  datacenter_id = data.vsphere_datacenter.vm_1_datacenter.id
+}
 
 
 
