@@ -210,12 +210,12 @@ resource "vsphere_virtual_machine" "vm" {
   guest_id = data.vsphere_virtual_machine.vm_1_template.guest_id
   scsi_type = data.vsphere_virtual_machine.vm_1_template.scsi_type
 
-  disk {
-    label            = "disk0"
-    size             = "${data.vsphere_virtual_machine.template.disks.0.size}"
-    eagerly_scrub    = "${data.vsphere_virtual_machine.template.disks.0.eagerly_scrub}"
-    thin_provisioned = "${data.vsphere_virtual_machine.template.disks.0.thin_provisioned}"
-  }
+#  disk {
+#    label            = "disk0"
+#    size             = "${data.vsphere_virtual_machine.template.disks.0.size}"
+#    eagerly_scrub    = "${data.vsphere_virtual_machine.template.disks.0.eagerly_scrub}"
+#    thin_provisioned = "${data.vsphere_virtual_machine.template.disks.0.thin_provisioned}"
+#  }
 
   vapp {
     properties {
