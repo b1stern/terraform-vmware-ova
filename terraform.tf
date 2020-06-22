@@ -18,13 +18,13 @@ provider "camc" {
   version = "~> 0.2"
 }
 
-provider "vsphere" {
-  user           = "Administrator@tivlab.raleigh.ibm.com"
-  password       = "Ams49test!"
-  vsphere_server = "vcenter1.tivlab.raleigh.ibm.com"
+# provider "vsphere" {
+#  user           = "Administrator@tivlab.raleigh.ibm.com"
+#  password       = "Ams49test!"
+#  vsphere_server = "vcenter1.tivlab.raleigh.ibm.com"
 
-  allow_unverified_ssl = true
-}
+#  allow_unverified_ssl = true
+#}
 
 data "vsphere_datacenter" "dc" {
   name = "${var.datacenter}"
