@@ -18,6 +18,10 @@ provider "camc" {
   version = "~> 0.2"
 }
 
+data "vsphere_datacenter" "vm_1_datacenter" {
+  name = var.vm_1_datacenter
+}
+
 data "vsphere_resource_pool" "vm_1_resource_pool" {
   name          = var.vm_1_resource_pool
   datacenter_id = data.vsphere_datacenter.vm_1_datacenter.id
