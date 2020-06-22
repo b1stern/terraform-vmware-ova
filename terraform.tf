@@ -167,10 +167,6 @@ variable "datastore" {
   default = "v7000_vmware2_v6"
 }
 
-# vCenter / ESXi ResourcePool
-variable "vm_1_resource_pool" {
-  default="Pool1"
-}
 
 # Virtual Machine configuration
 # VM Name
