@@ -210,20 +210,11 @@ resource "vsphere_virtual_machine" "vm" {
   guest_id = data.vsphere_virtual_machine.vm_1_template.guest_id
   scsi_type = data.vsphere_virtual_machine.vm_1_template.scsi_type
 
-  network_interface {
-    network_id   = "${data.vsphere_network.network.id}"
-    adapter_type = "${data.vsphere_virtual_machine.template.network_interface_types[0]}"
-  }
-
   disk {
     label            = "disk0"
     size             = "${data.vsphere_virtual_machine.template.disks.0.size}"
     eagerly_scrub    = "${data.vsphere_virtual_machine.template.disks.0.eagerly_scrub}"
     thin_provisioned = "${data.vsphere_virtual_machine.template.disks.0.thin_provisioned}"
-  }
-
-  cdrom {
-    client_device = true
   }
 
   vapp {
@@ -235,5 +226,19 @@ resource "vsphere_virtual_machine" "vm" {
   clone {
 #    template_uuid = "${data.vsphere_virtual_machine.template.id}"
     template_uuid = "${data.vsphere_virtual_machine.template.id}"
+      customize {
+      linux_options {
+        domain    = var.vm_1_domain
+        host_name = var.vm_1_name
+      }
+
+      network_interface {
+        ipv4_address = var.vm_1_ipv4_address
+        ipv4_netmask = var.vm_1_ipv4_prefix_length
+      }
+
+      ipv4_gateway    = var.vm_1_ipv4_gateway
+      dns_suffix_list = var.vm_1_dns_suffixes
+      dns_server_list = var.vm_1_dns_servers
   }
 }
