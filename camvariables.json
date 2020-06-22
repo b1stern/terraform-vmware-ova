@@ -73,7 +73,7 @@
       "group_name": "virtualmachine"
     },
     {
-      "name": "vsphere_virtual_machine",
+      "name": "ova_template",
       "type": "string",
       "description": "OVA Template",
       "hidden": false,
@@ -85,7 +85,7 @@
       "group_name": "cloud"
     },
     {
-      "name": "name",
+      "name": "VSphere_Virtual_Machine",
       "type": "string",
       "description": "Target VM name",
       "hidden": false,
